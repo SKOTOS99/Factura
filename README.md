@@ -2,4 +2,4 @@
 
 
 ##Diagrama en UML en el que se muestra la relacion de modelos para este ejemplo
-![Diagrama UML](UML.png)
+![Diagrama UML](src/main/resources/UML.png)
