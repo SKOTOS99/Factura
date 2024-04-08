@@ -76,13 +76,21 @@ public class Factura {
 		sb.append("Factura No. ").append(this.folio).append("\ncliente: ").append(this.cliente.getNombre())
 				.append("\rfc: ").append(this.cliente.getRfc()).append("\nfecha: ")
 				.append(Utils.formateaFecha(this.fecha)).append("\nproductos: ")
-				.append("\n#\tNombre\t$\tcant.\tTotal\n").append(Arrays.toString(this.items));
+				.append("\n#\tNombre\t$\tcant.\tTotal\n");
 		for (ItemFactura factura : this.items) {
-			sb.append("\t").append("\n producto").append(factura.getProducto().getNombre()).append("\t")
-					.append(factura.getProducto().getPrecio()).append("\t").append(factura.getCantidad()).append("\t")
-					.append(factura.calcularImporte()).append("\n");
+			if (factura == null) {
+				continue;
+			}
+			sb.append(factura.getProducto().getCodigo()).append("\t")
+			.append(factura.getProducto().getNombre())
+			.append("\t")
+					.append(factura.getProducto().getPrecio())
+					.append("\t").append(factura.getCantidad())
+					.append("\t")
+					.append(factura.calcularImporte())
+					.append("\n");
 		}
-		sb.append("\nTotal").append(calcularTotal());
+		sb.append("\nTotal: ").append(calcularTotal());
 		
 
 		return sb.toString();

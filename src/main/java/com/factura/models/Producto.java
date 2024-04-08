@@ -24,6 +24,8 @@ public class Producto {
 	 */
 	private String nombre;
 	
+	private static int ultimoId;
+	
 	/**
 	 * Descripcion del producto.
 	 */
@@ -31,6 +33,7 @@ public class Producto {
 
 	public Producto() {
 		super();
+		this.codigo = ++Producto.ultimoId;
 	}
 	
 	
