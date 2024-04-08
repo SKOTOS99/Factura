@@ -22,8 +22,9 @@ public class Factura {
 	/**
 	 * folio de la factura.
 	 */
-	@Generated
 	private int folio;
+	
+	private static int ultimoId;
 
 	/**
 	 * descripcion de la factura.
@@ -61,6 +62,7 @@ public class Factura {
 		}
 
 	}
+	
 
 	public Double calcularTotal() {
 		Double total = 0.0;
@@ -81,14 +83,7 @@ public class Factura {
 			if (factura == null) {
 				continue;
 			}
-			sb.append(factura.getProducto().getCodigo()).append("\t")
-			.append(factura.getProducto().getNombre())
-			.append("\t")
-					.append(factura.getProducto().getPrecio())
-					.append("\t").append(factura.getCantidad())
-					.append("\t")
-					.append(factura.calcularImporte())
-					.append("\n");
+			sb.append(factura).append("\n");
 		}
 		sb.append("\nTotal: ").append(calcularTotal());
 		
@@ -101,6 +96,14 @@ public class Factura {
 		this.cliente = cliente;
 		this.items = new ItemFactura[GlobalConstants.MAX_ITEMS];
 		this.fecha = new Date();
+		this.folio = ++ultimoId;
 	}
+
+	@Override
+	public String toString() {
+		return  detalle();
+	}
+	
+	
 
 }

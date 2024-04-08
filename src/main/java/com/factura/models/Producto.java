@@ -35,6 +35,13 @@ public class Producto {
 		super();
 		this.codigo = ++Producto.ultimoId;
 	}
+
+	@Override
+	public String toString() {
+		return codigo + "\t" + nombre + "\t" + precio;
+	}
+	
+	
 	
 	
 

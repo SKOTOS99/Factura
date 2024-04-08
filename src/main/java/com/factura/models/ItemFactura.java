@@ -31,6 +31,12 @@ public class ItemFactura {
 		this.cantidad = cantidad;
 		this.producto = producto;
 	}
+
+	@Override
+	public String toString() {
+		return producto + "\t" + cantidad + "\t" + calcularImporte();
+	}
+	
 	
 	
 	
